@@ -9,9 +9,9 @@
     .module('cybersponse')
     .controller('playbookUtility100Ctrl', playbookUtility100Ctrl);
 
-    playbookUtility100Ctrl.$inject = ['$scope', '$q', 'playbookDebuggerService', '$timeout', '$rootScope', 'CommonUtils', 'widgetUtilityService', '$state', '$window'];
+    playbookUtility100Ctrl.$inject = ['$scope', '$q', 'playbookDebuggerService', '$timeout', '$rootScope', 'CommonUtils', 'widgetUtilityService', '$state', '$window', 'widgetBasePath'];
 
-  function playbookUtility100Ctrl($scope, $q, playbookDebuggerService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window) {
+  function playbookUtility100Ctrl($scope, $q, playbookDebuggerService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window, widgetBasePath) {
     $scope.getPlaybookInterConnection = getPlaybookInterConnection;
     $scope.playbookInterconnectionID = 'pb-' + CommonUtils.generateUUID();
     $scope.canvasConfig = {
@@ -19,11 +19,17 @@
       node_text_color: '',
       edge_color: ''
     };
+    $scope.isLightTheme = $rootScope.theme.id === 'light';
+    $scope.backgroundImageUrl = $scope.isLightTheme ? widgetBasePath + 'widgetAssets/images/playbookUtility-ui-white-background.svg' : widgetBasePath + 'widgetAssets/images/playbookUtility-ui-dark-background.svg';
     let playbookConnectionConfig;
     
     $scope.$on('popupOpened', function() {
       _handleTranslations();
-    })
+    });
+
+    $scope.$on('popupClosed', function() {
+      $scope.searchText = '';
+    });
 
     function _highlightStep(stepElement) {
       stepElement.style.setProperty('border', '2px solid #22a6af', 'important');
@@ -282,7 +288,7 @@
         widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
           $scope.viewWidgetVars = {
             // Create your translating static string variables here
-            PLAYBOOK_INTERCONNECTION_ENGINE_TITLE: widgetUtilityService.translate('playbookDebugger.PLAYBOOK_REFERENCE_VIEWER_LABEL'),
+            PLAYBOOK_REFERENCE_VIEWER_TITLE: widgetUtilityService.translate('playbookDebugger.PLAYBOOK_REFERENCE_VIEWER_LABEL'),
             SEARCH: widgetUtilityService.translate('playbookDebugger.SEARCH'),
             SEARCH_WITHIN_PLAYBOOK_TITLE: widgetUtilityService.translate('playbookDebugger.SEARCH_WITHIN_PLAYBOOK'),
             TOOLTIP_PLAYBOOK_REFERENCE_VIEWER: widgetUtilityService.translate('playbookDebugger.TOOLTIP_PLAYBOOK_REFERENCE_VIEWER'),
