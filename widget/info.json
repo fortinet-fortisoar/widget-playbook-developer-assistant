@@ -9,6 +9,7 @@
         "pages": [],
         "certified": "No",
         "publisher": "Fortinet",
+        "help_online": "https://github.com/fortinet-fortisoar/widget-playbook-utility/blob/release/1.0.0/README.md",
         "compatibility": [
             "7.6.0"
         ],
@@ -16,6 +17,10 @@
         "windowClass": "Full Width",
         "category": [
             "Utilities"
+        ],
+        "snapshots": [
+            "https://update.cybersponse.com/fsr-widgets/playbookUtility-1.0.0/widgetAssets/images/playbook_utility_dialog.png",
+            "https://update.cybersponse.com/fsr-widgets/playbookUtility-1.0.0/widgetAssets/images/playbook_utility_search.png"
         ],
         "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAV9SURBVHgB3VuLeeM2DIazwDkTHDtBfRvoJrhsEHWCuBPEncDuBHY3yE2gdoK4E0g3gdMJUCICI0rmA9TLVf/v4ydbAokHSRCEKAAGIm50KXS5YI1XXY66KFgotOxrXZ51KVmni1MnfeMR/SiXaASS2VLchUebMIYSFoaI8gYZ8JCQ4AEWAi1rLtSpuNP0UsW+wXKwkdKRAdbw/4NUpzUZoBIS/wPLwZuQ7kwG+ENIfICZQU5KF+lwtvEipDuvNAMaLq+6qAAhWfTLarWqYACYl4Jmjiqr/YqvZ83njWkvfXhjvWyTTqGpUOny9aNCYNkwgVGJPeIB7sU91oGVFK9cpzT/E/jZulwC7SuiX3Uq51D3zieo5/wLW6qAurferRbrDe69J122cN0Ldm+bdhTTKfD32kHz/RXCfFVXVn60ZZ0I33U70inSNGxZNTgSsA49L50RVGC9NisBrw3TFo6ey8aQsRdiDLAe6qUlLP3e8WhI5ZWhG3kf2UaDj5G+PmG7x7cwAJYBzOZli57VYDblAwz3lvLFWAJIRs7synsYG+xgRtxMeY8AOcwMrJ2lwR5uATZCcqTWEd4gg0Rge9c3yO/MCnRvwXuF2livNL2NOCuwTlHl6I46yeM/YL9lszC+AKYE1stTLqQ9smAZT5U9+kPTLo5cJ+M2jhFeymp7B1MA28vdJkJ7xPERM8KW6cgQ4+U42LrdjcwW5lVeaoSS6XYgxF2kQepp2ol1e/znQDUF00FFnpvcxhOMAWxC0rLTExdBnSmQReQlJ3uR0BoER4DeNv6pL/e6fOdbf/GVGPnmWQVh0HPa1t6vGPr3T7r8Iqwbkvc9ocJ/H2AsYOMDcu7hLEB7DPRgdK3H9rrep74JjsRJlFiDa0uATQJtFzuQ8zx42oh6eGy/6Bm+GqC1NRXQPngETw5Q0J+iywV1L5IOI9xBHMaKFfgZvuf99E/fMvUbpON3z/1nrKdZSLmKr30yym1gE2AUAZoYFKTzXccaDdQtpKNllBEQQ590Onv0vvjBVxUjlBhgKIYoMjkkBqj4eg/9EIoZvMBhGZ7PfI0aP2UEfA48+wJ1GFp5nueQjsxzn5QiB/k1UHfwtP0ANtkbyTKYe/zVmMtgNMLDxHA41tha6s2xHYt3Ic7bYf1yxYdYILSR0oqBVigsoD0EhH8W1N8H6h8D9TIu44bCHaUKAa3CMErsvCbDeuRsMX6uR3l42qO04CvJPNoIsN/UrIW0UyAL8O1OvTJWJ9UIopwbul9qjoVQNHpy0JPMwXA4ZRk0sfljhO4HTIdQ22fHfzpYcYYxgG0Pv43QnnB8nCI8be/f6x1DFNgkK8gQKkJLRiiwSYtLjUJtH7CdFj+BTL73hA1MCWycS3RFcNSlUfSA7lihZAXGS2lPAWx7+ei67mnDFSscYSnAJkdAiDlFV33XUtnnJStNEwW3QKcXFcwMbE64l3jjswGzC4DXe4X5ZOij/FiOjXkXluKHWTtCqjzWazL5iSOOtDXF+iCWvXpsU2QajATlc3Qjg0Tg9ScvhnfWR7beSGGAbg9fsGGinp555dj+fgn5924MGW10j8pStsV8GGFST4TUo7IUivre0LqOyppjsgrcR2tJjkMsU4zuo7L0+xu3S/X/1u2criqi/zBzr8PSVntU74Dph6WpTgaJQNlh6dLosupYzYehR9bvrSPwG75nep1Q8ZV2btXAdwJd3j5UQMlclJ/oyCBdkA3i/Ce3UPYlHGFnD9UYptliTgAM5yVtlJQQkcbgn2A5kAZeigwgnW9L+mhKijcygDRlNE5qaR68iOnQfW73aq7AwiD0bcoQ5yHl8VZ77gHA+MfTuavCCduBzw7/6ymqACydzGgw3y99OP5/ARinBPnZsm6xAAAAAElFTkSuQmCC",
         "contexts": [
