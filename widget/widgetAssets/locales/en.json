@@ -6,8 +6,8 @@
         "PLAYBOOK_DEBUGGER_EDIT_VIEW": "Playbook Debugger Edit View",
         "PLAYBOOK_REFERENCE_VIEWER_LABEL": "Playbook Reference Viewer",
         "SEARCH": "Search",
+        "SEARCH_NOTE": "Find playbook steps containing your search term in the open playbook. The matching steps will be highlighted.",
         "SEARCH_WITHIN_PLAYBOOK": "Search Within Playbook",
-        "TOOLTIP_PLAYBOOK_REFERENCE_VIEWER": "View the relationships between the current playbook and both its referenced and referring playbooks. Click on a playbook name to navigate to its details.",
-        "TOOLTIP_SEARCH": "Find playbook steps containing your search term in the open playbook. The matching steps will be highlighted."
+        "TOOLTIP_PLAYBOOK_REFERENCE_VIEWER": "View the relationships between the current playbook and both its referenced and referring playbooks. Click on a playbook name to navigate to its details."
     }
 }

@@ -313,7 +313,7 @@
             SEARCH: widgetUtilityService.translate('playbookDebugger.SEARCH'),
             SEARCH_WITHIN_PLAYBOOK_TITLE: widgetUtilityService.translate('playbookDebugger.SEARCH_WITHIN_PLAYBOOK'),
             TOOLTIP_PLAYBOOK_REFERENCE_VIEWER: widgetUtilityService.translate('playbookDebugger.TOOLTIP_PLAYBOOK_REFERENCE_VIEWER'),
-            TOOLTIP_SEARCH: widgetUtilityService.translate('playbookDebugger.TOOLTIP_SEARCH')
+            SEARCH_NOTE: widgetUtilityService.translate('playbookDebugger.SEARCH_NOTE')
           };
         }).finally(function() {
           init();
