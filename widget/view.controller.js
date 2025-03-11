@@ -13,6 +13,7 @@
 
   function playbookUtility100Ctrl($scope, $q, playbookDebuggerService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window, widgetBasePath) {
     $scope.getPlaybookInterConnection = getPlaybookInterConnection;
+    $scope.searchInStep = searchInStep;
     $scope.playbookInterconnectionID = 'pb-' + CommonUtils.generateUUID();
     $scope.canvasConfig = {
       node_bg_color: '',
@@ -29,6 +30,8 @@
 
     $scope.$on('popupClosed', function() {
       $scope.searchText = '';
+      $scope.playbook_interconnection_network.setData({ nodes: new vis.DataSet([]), edges: new vis.DataSet([]) });
+      $scope.searchInStep();
     });
 
     function _highlightStep(stepElement) {
@@ -54,12 +57,12 @@
       }, 1000);
     }
 
-    $scope.$watch('searchText', function (newVal, old_value) {
+    function searchInStep() {
       let playbookDesigner = document.querySelector('#designer');
       let playbookConfig = {
         playbookDesigner: playbookDesigner,
         playbookDesignerScope: angular.element(playbookDesigner).scope(),
-        searchValue: newVal
+        searchValue: $scope.searchText
       };
       let highlightedStepUUID = [];
       if(playbookConfig.playbookDesignerScope && playbookConfig.playbookDesignerScope.playbook && playbookConfig.playbookDesignerScope.playbook.steps) {
@@ -73,7 +76,7 @@
           if(playbookConfig.searchValue === '')
             continue;
 
-          if(stepArguments.toLowerCase().indexOf(playbookConfig.searchValue.toLowerCase()) >= 0) {
+          if((stepArguments.toLowerCase().indexOf(playbookConfig.searchValue.toLowerCase()) >= 0) || (step.name.toLowerCase().includes(playbookConfig.searchValue.toLowerCase()))) {
             _highlightStep(stepElement);
             highlightedStepUUID.push(step.uuid);
           }
@@ -89,7 +92,12 @@
           _highlightStep(stepElement);
         }
       }
-    });
+      $scope.noResult = highlightedStepUUID.length === 0 && $scope.searchText !== '' ? true : false;
+    }
+
+    function truncateText(text, maxLength) {
+      return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    }
 
     function get_parent_playbooks(uuid, current_depth = 0, until_depth) {
       var defer = $q.defer();
@@ -103,17 +111,20 @@
             parent_collections.push(workflow['collection'].split('/').pop());
             playbookConnectionConfig.nodes.update({
               'id': workflow.uuid,
-              'label': workflow.name,
+              'label': truncateText(workflow.name, 20),
+              'title': workflow.name,
               'shape': 'box',
               'level': -(current_depth + 1),
               'color': $scope.canvasConfig.node_bg_color,
               'margin': { top: 10, bottom: 10, left: 10, right: 10 },
-              'font': { 'color': $scope.canvasConfig.node_text_color }
+              'font': { face: "Lato, sans-serif", 'color': $scope.canvasConfig.node_text_color },
+              'widthConstraint': { 'maximum': 300 }
             });
             playbookConnectionConfig.edges.update({
               'id': _convertID(workflow.uuid, uuid),
               'from': workflow.uuid,
               'to': uuid,
+              'width': 2,
               'color': {
                   'color': $scope.canvasConfig.edge_color, // Green default edge
                   'highlight': $scope.canvasConfig.edge_color, // Purple when selected
@@ -135,12 +146,14 @@
       playbookDebuggerService.getChildPlaybook(uuid).then(function(response) {
           playbookConnectionConfig.nodes.update({
             'id': uuid,
-            'label': response['data']['name'],
+            'label': truncateText(response['data']['name'], 20),
+            'title': response['data']['name'],
             'shape': 'box',
             'level': current_depth,
             'color': $scope.canvasConfig.node_bg_color,
             'margin': { top: 10, bottom: 10, left: 10, right: 10 },
-            'font': { 'color': $scope.canvasConfig.node_text_color }
+            'font': { face: "Lato, sans-serif",  'color': $scope.canvasConfig.node_text_color },
+            'widthConstraint': { 'maximum': 300 }
           });
 
           if (until_depth && until_depth <= current_depth)
@@ -158,16 +171,19 @@
               playbookConnectionConfig.nodes.update({
                 'id': child_playbook_uuid,
                 'label': 'Fetching',
+                'title': 'Fetching',
                 'shape': 'box',
                 'level': current_depth + 1,
                 'color': $scope.canvasConfig.node_bg_color,
                 'margin': { top: 10, bottom: 10, left: 10, right: 10 },
-                'font': { 'color': $scope.canvasConfig.node_text_color }
+                'font': { face: "Lato, sans-serif", 'color': $scope.canvasConfig.node_text_color },
+                'widthConstraint': { 'maximum': 300 }
               });
               playbookConnectionConfig.edges.update({
                 'id': _convertID(uuid, child_playbook_uuid),
                 'from': uuid,
                 'to': child_playbook_uuid,
+                'width': 2,
                 'color': {
                   'color': $scope.canvasConfig.edge_color, // Green default edge
                   'highlight': $scope.canvasConfig.edge_color, // Purple when selected
@@ -217,12 +233,9 @@
         }
       };
       $scope.playbook_interconnection_network = new vis.Network(container, $scope.playbook_interconnection_vis_data, options);
-      setTimeout(() => {
-        $scope.playbook_interconnection_network.fit();
-      }, 500);
       var canvasElement = document.querySelector('.vis-network');
       if($rootScope.theme.id === 'steel') {
-        canvasElement.style.backgroundColor = '#323b47';
+        canvasElement.style.backgroundColor = '#2A323E';
         $scope.canvasConfig.node_bg_color = '#206A75';
         $scope.canvasConfig.node_text_color = '#E0F8FC';
         $scope.canvasConfig.edge_color = '#B3B9C4';
@@ -244,6 +257,11 @@
         var url = $state.href($state.current.name, {id: params.nodes[0]});
         $window.open(url,'_blank');
       });
+      setTimeout(() => {
+        if($scope.playbook_interconnection_vis_data.nodes.length === 1) {
+          $scope.playbook_interconnection_network.fit();
+        }
+      }, 500);
       $scope.playbook_interconnection_network.on("stabilizationIterationsDone", function () {
         $scope.playbook_interconnection_network.fit(); // Auto-adjusts view to avoid overlap
         if($scope.playbook_interconnection_vis_data.nodes._data.length === 1) {
@@ -261,18 +279,20 @@
 
       playbookConnectionConfig.nodes.update({
         'id': $scope.playbook_uuid,
-        'label': designerScope.playbookEntity.playbook.name,
+        'label': truncateText(designerScope.playbookEntity.playbook.name, 20),
+        'title': designerScope.playbookEntity.playbook.name,
         'shape': 'box',
         'level': 0,
         'color': $scope.canvasConfig.node_bg_color,
         'font': { 'color': $scope.canvasConfig.node_text_color },
-        'margin': { top: 10, bottom: 10, left: 10, right: 10 }
+        'margin': { face: "Lato, sans-serif", top: 10, bottom: 10, left: 10, right: 10 },
+        'widthConstraint': { 'maximum': 300 }
       });
 
       $scope.processing = true;
       var promises = [];
-      promises.push(get_parent_playbooks($scope.playbook_uuid, 0, 5));
-      promises.push(get_child_playbooks($scope.playbook_uuid, 0, 5));
+      promises.push(get_parent_playbooks($scope.playbook_uuid, 0, 4));
+      promises.push(get_child_playbooks($scope.playbook_uuid, 0, 4));
       $q.all(promises).then(function() {
         $scope.processing = false;
       })
@@ -288,6 +308,7 @@
         widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
           $scope.viewWidgetVars = {
             // Create your translating static string variables here
+            NO_RESULTS_FOUND: widgetUtilityService.translate('playbookDebugger.NO_RESULTS_FOUND'),
             PLAYBOOK_REFERENCE_VIEWER_TITLE: widgetUtilityService.translate('playbookDebugger.PLAYBOOK_REFERENCE_VIEWER_LABEL'),
             SEARCH: widgetUtilityService.translate('playbookDebugger.SEARCH'),
             SEARCH_WITHIN_PLAYBOOK_TITLE: widgetUtilityService.translate('playbookDebugger.SEARCH_WITHIN_PLAYBOOK'),

@@ -11,5 +11,5 @@
 
 Helpful tools to debug playbooks
 
-- Search
-- Playbook Interconnection Engine
+- Search Within Playbook: Find playbook steps containing your search term in the open playbook. The matching steps will be highlighted.
+- Playbook Reference Viewer: View the relationships between the current playbook and both its referenced and referring playbooks. Click on a playbook name to navigate to its details.
