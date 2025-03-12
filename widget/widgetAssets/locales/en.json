@@ -2,11 +2,12 @@
     "playbookDebugger": {
         "BTN_CANCEL": "CANCEL",
         "BTN_SAVE": "Save",
+        "NO_RESULTS_FOUND": "No results found",
         "PLAYBOOK_DEBUGGER_EDIT_VIEW": "Playbook Debugger Edit View",
         "PLAYBOOK_REFERENCE_VIEWER_LABEL": "Playbook Reference Viewer",
         "SEARCH": "Search",
+        "SEARCH_NOTE": "Find playbook steps containing your search term in the open playbook. The matching steps will be highlighted.",
         "SEARCH_WITHIN_PLAYBOOK": "Search Within Playbook",
-        "TOOLTIP_PLAYBOOK_REFERENCE_VIEWER": "Visualize the relationships between the current playbook and its referenced playbooks. Click on a playbook name to navigate to its details.",
-        "TOOLTIP_SEARCH": "Find playbook steps containing your search term in the currently open playbook. Matching steps will be highlighted."
+        "TOOLTIP_PLAYBOOK_REFERENCE_VIEWER": "View the relationships between the current playbook and both its referenced and referring playbooks. Click on a playbook name to navigate to its details."
     }
 }

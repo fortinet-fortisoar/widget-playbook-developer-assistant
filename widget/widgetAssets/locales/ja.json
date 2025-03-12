@@ -2,11 +2,12 @@
     "playbookDebugger": {
         "BTN_CANCEL": "キャンセル",
         "BTN_SAVE": "保存",
+        "NO_RESULTS_FOUND": "結果が見つかりません",
         "PLAYBOOK_DEBUGGER_EDIT_VIEW": "プレイブックデバッガー編集ビュー",
         "PLAYBOOK_REFERENCE_VIEWER_LABEL": "プレイブックリファレンスビューア",
         "SEARCH": "検索",
+        "SEARCH_NOTE": "開いているプレイブック内で検索語を含むステップを見つけます。一致するステップがハイライト表示されます。",
         "SEARCH_WITHIN_PLAYBOOK": "プレイブック内を検索",
-        "TOOLTIP_PLAYBOOK_REFERENCE_VIEWER": "現在のプレイブックと参照されているプレイブックの関係を可視化します。プレイブック名をクリックすると、その詳細に移動できます。",
-        "TOOLTIP_SEARCH": "現在開いているプレイブック内で、検索語を含むプレイブックのステップを見つけます。一致するステップがハイライト表示されます。"
+        "TOOLTIP_PLAYBOOK_REFERENCE_VIEWER": "現在のプレイブックと、それが参照しているプレイブックおよび参照されているプレイブックとの関係を表示します。プレイブック名をクリックすると、その詳細に移動できます。"
     }
 }
