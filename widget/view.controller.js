@@ -21,7 +21,7 @@
       edge_color: ''
     };
     $scope.isLightTheme = $rootScope.theme.id === 'light';
-    $scope.backgroundImageUrl = $scope.isLightTheme ? widgetBasePath + 'widgetAssets/images/playbookUtility-ui-white-background.svg' : widgetBasePath + 'widgetAssets/images/playbookUtility-ui-dark-background.svg';
+    $scope.backgroundImageUrl = $scope.isLightTheme ? widgetBasePath + 'images/playbookUtility-ui-white-background.svg' : widgetBasePath + 'images/playbookUtility-ui-dark-background.svg';
     let playbookConnectionConfig;
     
     $scope.$on('popupOpened', function() {
