@@ -219,7 +219,7 @@
           'hierarchical': {
             enabled: true,
             levelSeparation: 150,
-            nodeSpacing: 500,
+            nodeSpacing: 200,
             'sortMethod': 'directed',
             'direction': 'UD',
           }
@@ -258,12 +258,10 @@
         $window.open(url,'_blank');
       });
       setTimeout(() => {
-        if($scope.playbook_interconnection_vis_data.nodes.length === 1) {
-          $scope.playbook_interconnection_network.fit();
-        }
+        $scope.playbook_interconnection_network.redraw();
       }, 500);
       $scope.playbook_interconnection_network.on("stabilizationIterationsDone", function () {
-        $scope.playbook_interconnection_network.fit(); // Auto-adjusts view to avoid overlap
+        $scope.playbook_interconnection_network.setOptions({ physics: false }); // Stop physics after stabilization
         if($scope.playbook_interconnection_vis_data.nodes._data.length === 1) {
           $scope.playbook_interconnection_network.setOptions({ physics: { enabled: true } });
           $scope.playbook_interconnection_network.moveTo({
