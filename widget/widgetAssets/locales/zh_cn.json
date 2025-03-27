@@ -1,7 +1,7 @@
 {
     "playbookDebugger": {
-        "BTN_CANCEL": "取消",
-        "BTN_SAVE": "保存",
+        "BTN_OK": "确定",
+        "NO_INPUT_REQUIRED": "这个小部件不需要配置输入。",
         "NO_RESULTS_FOUND": "未找到结果",
         "PLAYBOOK_DEBUGGER_EDIT_VIEW": "Playbook 调试器编辑视图",
         "PLAYBOOK_REFERENCE_VIEWER_LABEL": "Playbook 参考查看器",

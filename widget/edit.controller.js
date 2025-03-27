@@ -24,10 +24,9 @@
             if (widgetNameVersion) {
               widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
                 $scope.viewWidgetVars = {
-                  // Create your translating static string variables here
-                  BTN_CANCEL: widgetUtilityService.translate('playbookDebugger.BTN_CANCEL'),
-                  BTN_SAVE: widgetUtilityService.translate('playbookDebugger.BTN_SAVE'),
-                  PLAYBOOK_DEBUGGER_EDIT_VIEW_LABEL: widgetUtilityService.translate('playbookDebugger.PLAYBOOK_DEBUGGER_EDIT_VIEW')
+                  // Create your translating static string variables here]
+                  BTN_OK: widgetUtilityService.translate('playbookDebugger.BTN_OK'),
+                  NO_INPUT_REQUIRED: widgetUtilityService.translate('playbookDebugger.NO_INPUT_REQUIRED')
                 };
               });
             }

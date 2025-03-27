@@ -1,7 +1,7 @@
 {
     "playbookDebugger": {
-        "BTN_CANCEL": "キャンセル",
-        "BTN_SAVE": "保存",
+        "BTN_OK": "はい",
+        "NO_INPUT_REQUIRED": "このウィジェットは設定入力を必要としません。",
         "NO_RESULTS_FOUND": "結果が見つかりません",
         "PLAYBOOK_DEBUGGER_EDIT_VIEW": "プレイブックデバッガー編集ビュー",
         "PLAYBOOK_REFERENCE_VIEWER_LABEL": "プレイブックリファレンスビューア",
