@@ -7,11 +7,11 @@
   (function() {
     angular
       .module('cybersponse')
-      .factory('playbookDebuggerService', playbookDebuggerService);
+      .factory('playbookDeveloperAssistantService', playbookDeveloperAssistantService);
   
-      playbookDebuggerService.$inject = ['$q', '$resource', 'API', '$http'];
+      playbookDeveloperAssistantService.$inject = ['$q', '$resource', 'API', '$http'];
   
-      function playbookDebuggerService($q, $resource, API, $http) {
+      function playbookDeveloperAssistantService($q, $resource, API, $http) {
         var service = {
           getParentPlaybook: getParentPlaybook,
           getChildPlaybook: getChildPlaybook

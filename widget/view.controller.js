@@ -7,11 +7,11 @@
 (function () {
   angular
     .module('cybersponse')
-    .controller('playbookUtility100Ctrl', playbookUtility100Ctrl);
+    .controller('playbookDeveloperAssistant100Ctrl', playbookDeveloperAssistant100Ctrl);
 
-    playbookUtility100Ctrl.$inject = ['$scope', '$q', 'playbookDebuggerService', '$timeout', '$rootScope', 'CommonUtils', 'widgetUtilityService', '$state', '$window', 'widgetBasePath'];
+    playbookDeveloperAssistant100Ctrl.$inject = ['$scope', '$q', 'playbookDeveloperAssistantService', '$timeout', '$rootScope', 'CommonUtils', 'widgetUtilityService', '$state', '$window', 'widgetBasePath'];
 
-  function playbookUtility100Ctrl($scope, $q, playbookDebuggerService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window, widgetBasePath) {
+  function playbookDeveloperAssistant100Ctrl($scope, $q, playbookDeveloperAssistantService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window, widgetBasePath) {
     $scope.getPlaybookInterConnection = getPlaybookInterConnection;
     $scope.searchInStep = searchInStep;
     $scope.playbookInterconnectionID = 'pb-' + CommonUtils.generateUUID();
@@ -21,7 +21,7 @@
       edge_color: ''
     };
     $scope.isLightTheme = $rootScope.theme.id === 'light';
-    $scope.backgroundImageUrl = $scope.isLightTheme ? widgetBasePath + 'images/playbookUtility-ui-white-background.svg' : widgetBasePath + 'images/playbookUtility-ui-dark-background.svg';
+    $scope.backgroundImageUrl = $scope.isLightTheme ? widgetBasePath + 'images/playbookDeveloperAssistant-ui-white-background.svg' : widgetBasePath + 'images/playbookDeveloperAssistant-ui-dark-background.svg';
     let playbookConnectionConfig;
     
     $scope.$on('popupOpened', function() {
@@ -104,7 +104,7 @@
       if (until_depth && until_depth <= current_depth){
         defer.resolve();
       }
-      playbookDebuggerService.getParentPlaybook(uuid).then(function (response) {
+      playbookDeveloperAssistantService.getParentPlaybook(uuid).then(function (response) {
           const parent_playbooks = response['hydra:member'];
           let parent_collections = [];
           for (const workflow of parent_playbooks) {
@@ -143,7 +143,7 @@
 
     function get_child_playbooks(uuid, current_depth = 0, until_depth) {
       var defer = $q.defer();
-      playbookDebuggerService.getChildPlaybook(uuid).then(function(response) {
+      playbookDeveloperAssistantService.getChildPlaybook(uuid).then(function(response) {
           playbookConnectionConfig.nodes.update({
             'id': uuid,
             'label': truncateText(response['data']['name'], 20),
@@ -306,12 +306,12 @@
         widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
           $scope.viewWidgetVars = {
             // Create your translating static string variables here
-            NO_RESULTS_FOUND: widgetUtilityService.translate('playbookDebugger.NO_RESULTS_FOUND'),
-            PLAYBOOK_REFERENCE_VIEWER_TITLE: widgetUtilityService.translate('playbookDebugger.PLAYBOOK_REFERENCE_VIEWER_LABEL'),
-            SEARCH: widgetUtilityService.translate('playbookDebugger.SEARCH'),
-            SEARCH_WITHIN_PLAYBOOK_TITLE: widgetUtilityService.translate('playbookDebugger.SEARCH_WITHIN_PLAYBOOK'),
-            TOOLTIP_PLAYBOOK_REFERENCE_VIEWER: widgetUtilityService.translate('playbookDebugger.TOOLTIP_PLAYBOOK_REFERENCE_VIEWER'),
-            SEARCH_NOTE: widgetUtilityService.translate('playbookDebugger.SEARCH_NOTE')
+            NO_RESULTS_FOUND: widgetUtilityService.translate('playbookDeveloperAssistant.NO_RESULTS_FOUND'),
+            PLAYBOOK_REFERENCE_VIEWER_TITLE: widgetUtilityService.translate('playbookDeveloperAssistant.PLAYBOOK_REFERENCE_VIEWER_LABEL'),
+            SEARCH: widgetUtilityService.translate('playbookDeveloperAssistant.SEARCH'),
+            SEARCH_WITHIN_PLAYBOOK_TITLE: widgetUtilityService.translate('playbookDeveloperAssistant.SEARCH_WITHIN_PLAYBOOK'),
+            TOOLTIP_PLAYBOOK_REFERENCE_VIEWER: widgetUtilityService.translate('playbookDeveloperAssistant.TOOLTIP_PLAYBOOK_REFERENCE_VIEWER'),
+            SEARCH_NOTE: widgetUtilityService.translate('playbookDeveloperAssistant.SEARCH_NOTE')
           };
         }).finally(function() {
           init();

@@ -7,11 +7,11 @@
 (function () {
     angular
         .module('cybersponse')
-        .controller('editPlaybookUtility100Ctrl', editPlaybookUtility100Ctrl);
+        .controller('editPlaybookDeveloperAssistant100Ctrl', editPlaybookDeveloperAssistant100Ctrl);
 
-        editPlaybookUtility100Ctrl.$inject = ['$scope', 'config', 'widgetUtilityService', '$uibModalInstance'];
+        editPlaybookDeveloperAssistant100Ctrl.$inject = ['$scope', 'config', 'widgetUtilityService', '$uibModalInstance'];
 
-    function editPlaybookUtility100Ctrl($scope, config, widgetUtilityService, $uibModalInstance) {
+    function editPlaybookDeveloperAssistant100Ctrl($scope, config, widgetUtilityService, $uibModalInstance) {
         $scope.config = config;
         $scope.cancel = cancel;
 
@@ -25,8 +25,8 @@
               widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
                 $scope.viewWidgetVars = {
                   // Create your translating static string variables here]
-                  BTN_OK: widgetUtilityService.translate('playbookDebugger.BTN_OK'),
-                  NO_INPUT_REQUIRED: widgetUtilityService.translate('playbookDebugger.NO_INPUT_REQUIRED')
+                  BTN_OK: widgetUtilityService.translate('playbookDeveloperAssistant.BTN_OK'),
+                  NO_INPUT_REQUIRED: widgetUtilityService.translate('playbookDeveloperAssistant.NO_INPUT_REQUIRED')
                 };
               });
             }
