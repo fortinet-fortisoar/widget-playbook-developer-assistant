@@ -3,19 +3,19 @@
 
 # Usage
 
-The Playbook Utility Widget adds the **Playbook Utility** icon to the lower-right corner of the playbook designer,  providing a comprehensive view of the current playbook's relationships. It displays both referencing and referenced playbooks of the current playbook, helping users navigate interconnected and nested playbooks through a visual tree structure.
+The Playbook Developer Assistant Widget adds the **Playbook Developer Assistant** icon to the lower-right corner of the playbook designer,  providing a comprehensive view of the current playbook's relationships. It displays both referencing and referenced playbooks of the current playbook, helping users navigate interconnected and nested playbooks through a visual tree structure.
 
-To view the playbook relationships, open a playbook in the designer, and click the **Playbook Utility** icon in the lower-right corner of the screen:
+To view the playbook relationships, open a playbook in the designer, and click the **Playbook Developer Assistant** icon in the lower-right corner of the screen:
 
-![Playbook Utility icon in Playbook Desinger](./res/pbUtilityIcon.png) 
+![Playbook Developer Assistant icon in Playbook Desinger](./res/pbUtilityIcon.png) 
 
-Clicking the **Playbook Utility** icon opens the '***Playbook Utility***' modal, which contains the **Search** feature and the **Playbook Reference Viewer**.
+Clicking the **Playbook Developer Assistant** icon opens the '***Playbook Developer Assistant***' modal, which contains the **Search** feature and the **Playbook Reference Viewer**.
 
 ## Using the Search Feature
 
 The **Search Within Playbook** box helps users find playbook steps including variables, step names, and more, that contain the search term within the open playbook. When a match is found in any step within the open playbook, those steps are highlighted in the playbook designer. For example, searching for `reputation` in the sample playbook, `Enrich Indicators (Type All)` highlights steps such "Exit" (Set Variable step), "Has Integration Available" (Decision step), among others: 
 
-![Search function in the Playbook Utility Widget](./res/pbsearchinpbUtilitywidget.png) 
+![Search function in the Playbook Developer Assistant Widget](./res/pbsearchinpbUtilitywidget.png) 
 
 ## Using the Playbook Reference Viewer
 
