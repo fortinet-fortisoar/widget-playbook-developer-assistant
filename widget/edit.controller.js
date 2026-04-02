@@ -1,17 +1,17 @@
 /* Copyright start
   MIT License
-  Copyright (c) 2025 Fortinet Inc
+  Copyright (c) 2026 Fortinet Inc
   Copyright end */
 
 'use strict';
 (function () {
     angular
         .module('cybersponse')
-        .controller('editPlaybookDeveloperAssistant100Ctrl', editPlaybookDeveloperAssistant100Ctrl);
+        .controller('editPlaybookDeveloperAssistant110Ctrl', editPlaybookDeveloperAssistant110Ctrl);
 
-        editPlaybookDeveloperAssistant100Ctrl.$inject = ['$scope', 'config', 'widgetUtilityService', '$uibModalInstance'];
+        editPlaybookDeveloperAssistant110Ctrl.$inject = ['$scope', 'config', 'widgetUtilityService', '$uibModalInstance'];
 
-    function editPlaybookDeveloperAssistant100Ctrl($scope, config, widgetUtilityService, $uibModalInstance) {
+    function editPlaybookDeveloperAssistant110Ctrl($scope, config, widgetUtilityService, $uibModalInstance) {
         $scope.config = config;
         $scope.cancel = cancel;
 
