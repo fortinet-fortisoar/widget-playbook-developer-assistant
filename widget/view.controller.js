@@ -1,17 +1,17 @@
 /* Copyright start
   MIT License
-  Copyright (c) 2025 Fortinet Inc
+  Copyright (c) 2026 Fortinet Inc
   Copyright end */
 
 'use strict';
 (function () {
   angular
     .module('cybersponse')
-    .controller('playbookDeveloperAssistant100Ctrl', playbookDeveloperAssistant100Ctrl);
+    .controller('playbookDeveloperAssistant110Ctrl', playbookDeveloperAssistant110Ctrl);
 
-    playbookDeveloperAssistant100Ctrl.$inject = ['$scope', '$q', 'playbookDeveloperAssistantService', '$timeout', '$rootScope', 'CommonUtils', 'widgetUtilityService', '$state', '$window', 'widgetBasePath'];
+    playbookDeveloperAssistant110Ctrl.$inject = ['$scope', '$q', 'playbookDeveloperAssistantService', '$timeout', '$rootScope', 'CommonUtils', 'widgetUtilityService', '$state', '$window', 'widgetBasePath', '$filter'];
 
-  function playbookDeveloperAssistant100Ctrl($scope, $q, playbookDeveloperAssistantService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window, widgetBasePath) {
+  function playbookDeveloperAssistant110Ctrl($scope, $q, playbookDeveloperAssistantService, $timeout, $rootScope, CommonUtils, widgetUtilityService, $state, $window, widgetBasePath, $filter) {
     $scope.getPlaybookInterConnection = getPlaybookInterConnection;
     $scope.searchInStep = searchInStep;
     $scope.playbookInterconnectionID = 'pb-' + CommonUtils.generateUUID();
@@ -109,6 +109,7 @@
           let parent_collections = [];
           for (const workflow of parent_playbooks) {
             parent_collections.push(workflow['collection'].split('/').pop());
+            workflow.name = $filter('domPurifySanitize')(workflow.name);
             playbookConnectionConfig.nodes.update({
               'id': workflow.uuid,
               'label': truncateText(workflow.name, 20),
@@ -144,6 +145,7 @@
     function get_child_playbooks(uuid, current_depth = 0, until_depth) {
       var defer = $q.defer();
       playbookDeveloperAssistantService.getChildPlaybook(uuid).then(function(response) {
+          response['data']['name'] = $filter('domPurifySanitize')(response['data']['name']);
           playbookConnectionConfig.nodes.update({
             'id': uuid,
             'label': truncateText(response['data']['name'], 20),
@@ -274,7 +276,7 @@
       const designer = document.querySelector('#designer');
       const designerScope = angular.element(designer).scope();
       $scope.playbook_uuid = designerScope.playbookEntity.id;
-
+      designerScope.playbookEntity.playbook.name = $filter('domPurifySanitize')(designerScope.playbookEntity.playbook.name);
       playbookConnectionConfig.nodes.update({
         'id': $scope.playbook_uuid,
         'label': truncateText(designerScope.playbookEntity.playbook.name, 20),

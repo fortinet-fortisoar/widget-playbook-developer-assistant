@@ -1,10 +1,10 @@
 <!-- Copyright start
   MIT License
-  Copyright (c) 2025 Fortinet Inc
+  Copyright (c) 2026 Fortinet Inc
   Copyright end -->
-  <div>
-    <!-- Search String in Playbook  -->
-    <div class="display-inline-flex margin-0 width-100pt padding-md" style="background-size: cover; height: 60px;"
+<div>
+  <!-- Search String in Playbook  -->
+  <div class="display-inline-flex margin-0 width-100pt padding-md" style="background-size: cover; height: 60px;"
     data-ng-style="{'background-image': 'url(' + backgroundImageUrl + ')'}">
   </div>
   <div class="playbook-utility-container">
@@ -16,9 +16,12 @@
         {{viewWidgetVars.SEARCH_NOTE}}
       </p>
       <div class="input-group col-md-6 search-style margin-0 padding-0">
-        <input type="text" class="form-control filter-height-style font-style-normal" data-ng-model="searchText" ng-model-options="{debounce:500}" data-ng-change="searchInStep()" placeholder="{{ viewWidgetVars.SEARCH }}" aria-labelledby="search-btn" name="search-input">
+        <input type="text" class="form-control filter-height-style font-style-normal" data-ng-model="searchText"
+          ng-model-options="{debounce:500}" data-ng-change="searchInStep()" placeholder="{{ viewWidgetVars.SEARCH }}"
+          aria-labelledby="search-btn" name="search-input">
         <span class="input-group-btn">
-          <button type="submit" class="btn btn-default filter-height-style" aria-label="Search" id="submit-search-field-playbook-debugger">
+          <button type="submit" class="btn btn-default filter-height-style" aria-label="Search"
+            id="submit-search-field-playbook-debugger">
             <span class="icon icon-search"></span>
           </button>
         </span>
@@ -31,14 +34,15 @@
     <div ng-form name="playbookInterconnection" class="form-group">
       <div class="display-flex-space-between padding-left-md">
         <div class="display-flex-space-between">
-          <label class="control-label">{{viewWidgetVars.PLAYBOOK_REFERENCE_VIEWER_TITLE}}<span data-uib-tooltip="{{viewWidgetVars.TOOLTIP_PLAYBOOK_REFERENCE_VIEWER}}" class="margin-left-sm">
-            <i class="icon icon-information font-Size-13"></i>
-          </span></label>
+          <label class="control-label">{{viewWidgetVars.PLAYBOOK_REFERENCE_VIEWER_TITLE}}<span
+              data-uib-tooltip="{{viewWidgetVars.TOOLTIP_PLAYBOOK_REFERENCE_VIEWER}}" class="margin-left-sm">
+              <i class="icon icon-information font-Size-13"></i>
+            </span></label>
         </div>
         <div>
           <span class="fa btn widget-action-icon icon icon-refresh btn-sm pull-right"
             data-ng-click="getPlaybookInterConnection()"></span>
-          
+
         </div>
       </div>
       <div class="form-group">
@@ -50,4 +54,4 @@
     </div>
     <hr>
   </div>
-  </div>
+</div>
