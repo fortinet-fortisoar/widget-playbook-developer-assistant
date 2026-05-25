@@ -246,11 +246,21 @@
         $scope.canvasConfig.node_bg_color = '#206A75';
         $scope.canvasConfig.node_text_color = '#E0F8FC';
         $scope.canvasConfig.edge_color = '#B3B9C4';
-      }else {
+      }else if($rootScope.theme.id === 'deepSea') {
+        canvasElement.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
+        $scope.canvasConfig.node_bg_color = '#497AD4';
+        $scope.canvasConfig.node_text_color = '#E0F8FC';
+        $scope.canvasConfig.edge_color = '#B3B9C4';
+      }else if($rootScope.theme.id === 'light') {
         canvasElement.style.backgroundColor = '#F1F2F4';
         $scope.canvasConfig.node_bg_color = '#2153C4';
         $scope.canvasConfig.node_text_color = '#CFDEFB';
         $scope.canvasConfig.edge_color = '#8993A5';
+      } else {
+        canvasElement.style.backgroundColor = '#2A323E';
+        $scope.canvasConfig.node_bg_color = '#206A75';
+        $scope.canvasConfig.node_text_color = '#E0F8FC';
+        $scope.canvasConfig.edge_color = '#B3B9C4';
       }
       $scope.playbook_interconnection_network.on('click', function (params) {
         if(params && params.nodes.length === 0) {
