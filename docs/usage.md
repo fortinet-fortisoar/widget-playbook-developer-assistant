@@ -5,9 +5,9 @@
 
 The Playbook Developer Assistant Widget adds the **Playbook Developer Assistant** icon to the lower-right corner of the playbook designer,  providing a comprehensive view of the current playbook's relationships. It displays both referencing and referenced playbooks of the current playbook, helping users navigate interconnected and nested playbooks through a visual tree structure.
 
-To view the playbook relationships, open a playbook in the designer, and click the **Playbook Developer Assistant** icon in the lower-right corner of the screen:
+To view the playbook relationships, open a playbook in the designer, and click the **Playbook Developer Assistant** icon in the lower-right corner of the screen
 
-![Playbook Developer Assistant icon in Playbook Desinger](./res/pbUtilityIcon.png) 
+![Playbook Developer Assistant icon highlighted](./res/pbUtilityIcon.png)
 
 Clicking the **Playbook Developer Assistant** icon opens the '***Playbook Developer Assistant***' modal, which contains the **Search** feature and the **Playbook Reference Viewer**.
 

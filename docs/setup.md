@@ -11,7 +11,7 @@
 
 
 > [!NOTE]  
-> The **Playbook Developer Assistant** launches when a playbook is opened in the playbook designer and requires no additional configuration.
+> The **Playbook Developer Assistant** launches automatically when a playbook is opened in the playbook designer, and requires no additional configuration.
 
 
 ## Next Steps
