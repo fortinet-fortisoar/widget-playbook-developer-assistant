@@ -19,6 +19,7 @@ FortiSOAR supports nested playbooks, enabling more complex relationships between
 Key features of the **Playbook Developer Assistant** include: 
 
 - **Search Feature**: Quickly locate playbook steps that match the search term within the open playbook.
+
 - **Playbook Reference Viewer**: View the relationships between the current playbook and both its referenced and referring playbooks in a tree structure. You can click on any related playbook name to open it directly for further inspection.
 
 These tools empower users to visualize complex playbook relationships effortlessly, boosting efficiency and reducing errors in playbook design and troubleshooting.
